@@ -30,7 +30,7 @@ class ColmapParams:
 
     eval_image_select_mode: Literal["step", "ratio"] = "ratio"
 
-    eval_step: int = 8
+    eval_step: int = -1
 
     eval_ratio: float = 0.01
 
