@@ -28,7 +28,7 @@ class ColmapParams:
 
     split_mode: Literal["reconstruction", "experiment"] = "reconstruction"
 
-    eval_image_select_mode: Literal["step", "ratio"] = "step"
+    eval_image_select_mode: Literal["step", "ratio"] = "ratio"
 
     eval_step: int = 8
 
@@ -84,8 +84,8 @@ class DatasetParams:
 
     num_workers: int = 8
 
-    add_background_sphere: bool = False
+    add_background_sphere: bool = True
 
-    background_sphere_distance: float = 2.2
+    background_sphere_distance: float = 0.3
 
-    background_sphere_points: int = 204_800
+    background_sphere_points: int = 409_600

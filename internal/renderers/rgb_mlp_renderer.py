@@ -9,7 +9,7 @@ class RGBMLPRenderer(VanillaRenderer):
             n_hidden_layers: int = 3,
             lr: float = 1e-4,
             gamma: float = 0.1,
-            max_steps: int = 30_000,
+            max_steps: int = 20_000,
     ):
         super().__init__(compute_cov3D_python, convert_SHs_python=False)
 

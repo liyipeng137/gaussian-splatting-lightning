@@ -7,14 +7,14 @@ from lightning.pytorch.cli import LightningCLI, LightningArgumentParser
 class CLI(LightningCLI):
     def add_arguments_to_parser(self, parser: LightningArgumentParser) -> None:
         parser.add_argument("--iterations", "--iteration", "--steps", "--step", "--max_steps", type=Optional[int],
-                            default=30_000)
+                            default=20_000)
         parser.add_argument("--epochs", "--epoch", "--max_epochs", type=Optional[int], default=None)
         parser.add_argument("--name", "-n", type=Optional[str], default=None,
                             help="the training result output path will be 'output/name'")
         parser.add_argument("--version", "-v", type=Optional[str], default=None,
                             help="the training result output path will be 'output/name/version'")
         # TODO: add max_steps to save_iterations, but need to compatible with --max_steps < 0 & --max_epochs > 0
-        parser.add_argument("--save_iterations", type=List[int], default=[7_000, 30_000])
+        parser.add_argument("--save_iterations", type=List[int], default=[20_000])
         parser.add_argument("--logger", type=str, default="tensorboard")
         parser.add_argument("--project", type=str, default="Gaussian-Splatting", help="WanDB project name")
         parser.add_argument("--output", type=str, default=os.path.join(

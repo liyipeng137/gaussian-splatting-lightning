@@ -169,6 +169,12 @@ class GaussianSplatting(LightningModule):
 
     def training_step(self, batch, batch_idx):
         camera, image_info = batch
+
+        gt_image = image_info[1]
+        ht = gt_image.shape[1]
+        wt = gt_image.shape[2]
+        camera.width = wt
+        camera.height = ht
         # image_name, gt_image, masked_pixels = image_info
 
         global_step = self.trainer.global_step + 1  # must start from 1 to prevent densify at the beginning
@@ -262,6 +268,10 @@ class GaussianSplatting(LightningModule):
     def validation_step(self, batch, batch_idx):
         camera, image_info = batch
         gt_image = image_info[1]
+        ht = gt_image.shape[1]
+        wt = gt_image.shape[2]
+        camera.width = wt
+        camera.height = ht
 
         # forward
         outputs, loss, rgb_diff_loss, ssim_metric = self.forward_with_loss_calculation(camera, image_info)

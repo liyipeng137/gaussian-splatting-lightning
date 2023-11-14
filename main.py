@@ -21,7 +21,7 @@ def cli_main():
             # "logger": "TensorBoardLogger",
             "num_sanity_val_steps": 1,
             # "max_epochs": -1,
-            "max_steps": 30_000,
+            "max_steps": 20_000,
             "use_distributed_sampler": False,  # use custom ddp sampler
             "enable_checkpointing": False,
             "callbacks": [
